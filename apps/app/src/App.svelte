@@ -2,29 +2,61 @@
 	export let name: string;
 </script>
 
+<svelte:head>
+	<title>How it Learns</title>
+	<meta name="description" content="Visualisations of Machine Learning Algorithms" />
+	<!-- <link rel="icon" href="/favicon.ico" /> -->
+</svelte:head>
+
+<header>
+	Header
+</header>
+
 <main>
-	<h1>Welcome {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<svg></svg>
 </main>
 
+<aside>
+	Side
+</aside>
+
 <style>
+	:global(body) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		gap: 0px 0px;
+		grid-auto-flow: row;
+		grid-template-areas:
+			"Head Head Head Head Head Head Head Head Head Head"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side"
+			"Main Main Main Main Main Main Main Side Side Side";
+		height: 100vh;
+		max-height: 100vh;
+		width: 100vw;
+		max-width: 100vw;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	header {
+		grid-area: Head;
+  		border-bottom: 1px solid black
+	}
+
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		grid-area: Main;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	aside {
+		grid-area: Side;
+  		border-left: 1px solid black;
 	}
 </style>
