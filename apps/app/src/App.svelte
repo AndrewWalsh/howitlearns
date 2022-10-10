@@ -1,8 +1,9 @@
 <script lang="ts">
 	import {
 		COLOUR_PRIMARY,
-		COLOR_WHITE,
-		COLOR_SECONDARY,
+		COLOUR_WHITE,
+		COLOUR_SECONDARY,
+		COLOUR_OFF_WHITE,
 	} from './constants/theme';
 </script>
 
@@ -12,16 +13,14 @@
 	<!-- <link rel="icon" href="/favicon.ico" /> -->
 </svelte:head>
 
-<header style="--bg-colour: {COLOUR_PRIMARY}; --white-colour: {COLOR_WHITE}; --border-colour: {COLOR_SECONDARY};">
-	Header
+<header style="--bg-colour: {COLOUR_PRIMARY}; --white-colour: {COLOUR_WHITE}; --border-colour: {COLOUR_SECONDARY};">
 </header>
 
-<main>
+<main style="--shadow: {COLOUR_SECONDARY}">
 	<svg></svg>
 </main>
 
-<aside style="--border-colour: {COLOR_SECONDARY};">
-	Side
+<aside style="--border-colour: {COLOUR_SECONDARY}; --bg-color: {COLOUR_OFF_WHITE}">
 </aside>
 
 <style>
@@ -60,7 +59,7 @@
 	header::after {
 		/* border-bottom: 10px solid var(--border-colour); */
 		content:"";
-		background: -webkit-linear-gradient(-90deg, var(--bg-colour), var(--border-colour));
+		background: -webkit-linear-gradient(-90deg, var(--bg-colour) 20%, var(--border-colour));
 		display: block;
 		height:4px;
 		width: 100vw;
@@ -70,10 +69,12 @@
 
 	main {
 		grid-area: Main;
+		box-shadow: inset -0.25em 0.25em 2.75em -1.75em var(--shadow)
 	}
 
 	aside {
 		grid-area: Side;
   		border-left: 2px solid var(--border-colour);
+		background-color: var(--bg-color);
 	}
 </style>
