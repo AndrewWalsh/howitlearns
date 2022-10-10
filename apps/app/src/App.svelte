@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let name: string;
+	import {
+		COLOUR_PRIMARY,
+		COLOR_WHITE,
+		COLOR_SECONDARY,
+	} from './constants/theme';
 </script>
 
 <svelte:head>
@@ -8,7 +12,7 @@
 	<!-- <link rel="icon" href="/favicon.ico" /> -->
 </svelte:head>
 
-<header>
+<header style="--bg-colour: {COLOUR_PRIMARY}; --white-colour: {COLOR_WHITE}; --border-colour: {COLOR_SECONDARY};">
 	Header
 </header>
 
@@ -16,7 +20,7 @@
 	<svg></svg>
 </main>
 
-<aside>
+<aside style="--border-colour: {COLOR_SECONDARY};">
 	Side
 </aside>
 
@@ -45,10 +49,23 @@
 		overflow: hidden;
 		padding: 0;
 	}
-
+	
 	header {
+		background-color: var(--bg-colour);
+		color: var(--white-colour);
 		grid-area: Head;
-  		border-bottom: 1px solid black
+		position: relative;
+	}
+
+	header::after {
+		/* border-bottom: 10px solid var(--border-colour); */
+		content:"";
+		background: -webkit-linear-gradient(-90deg, var(--bg-colour), var(--border-colour));
+		display: block;
+		height:4px;
+		width: 100vw;
+		position: absolute;
+		bottom: 0;
 	}
 
 	main {
@@ -57,6 +74,6 @@
 
 	aside {
 		grid-area: Side;
-  		border-left: 1px solid black;
+  		border-left: 2px solid var(--border-colour);
 	}
 </style>
