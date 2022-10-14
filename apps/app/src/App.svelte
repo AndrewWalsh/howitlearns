@@ -57,7 +57,6 @@
 	}
 
 	header::after {
-		/* border-bottom: 10px solid var(--border-colour); */
 		content:"";
 		background: -webkit-linear-gradient(-90deg, var(--bg-colour) 20%, var(--border-colour));
 		display: block;
