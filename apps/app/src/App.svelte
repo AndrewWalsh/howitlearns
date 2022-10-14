@@ -5,6 +5,7 @@
 		COLOUR_SECONDARY,
 		COLOUR_OFF_WHITE,
 	} from './constants/theme';
+	import { houseTrain, houseTest, trainDataToXY } from '@howitlearns/kaggle-data'
 </script>
 
 <svelte:head>
